@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>5f56e1f8-c491-4bde-9576-37539162a140</ProjectGuid>
+    <ProjectGuid>{170A2DD9-8824-4B00-AD33-DA69A2FB73DB}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ChessOPPConsole</RootNamespace>
