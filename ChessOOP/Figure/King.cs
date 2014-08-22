@@ -12,7 +12,7 @@ namespace ChessOOP
             throw new NotImplementedException();
         }
 
-        public override bool Move()
+        public override void  Move(Move _move)
         {
             throw new NotImplementedException();
         }
@@ -20,6 +20,11 @@ namespace ChessOOP
         public override FigureColor Color()
         {
             throw new NotImplementedException();
+        }
+
+        public override string Symbol
+        {
+            get { return "Кр"; }
         }
 
         

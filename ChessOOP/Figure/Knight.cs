@@ -12,7 +12,7 @@ namespace ChessOOP
             throw new NotImplementedException();
         }
 
-        public override bool Move()
+        public override void  Move(Move _move)
         {
             throw new NotImplementedException();
         }

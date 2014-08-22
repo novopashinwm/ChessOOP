@@ -12,7 +12,7 @@ namespace ChessOOP
             throw new NotImplementedException();
         }
 
-        public override bool Move()
+        public override void  Move(Move _move)
         {
             throw new NotImplementedException();
         }
@@ -22,9 +22,9 @@ namespace ChessOOP
             throw new NotImplementedException();
         }
 
-        public override string Symbol()
+        public override string Symbol
         {
-            return "C";
+            get { return "С"; }
         }
 
         public override bool IsCheckMove(Move move)

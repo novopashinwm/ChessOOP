@@ -1,0 +1,5 @@
+C:\Users\novopashin\Documents\GitHub\ChessOOP\ChessOPPConsole\bin\Debug\ChessOPPConsole.exe
+C:\Users\novopashin\Documents\GitHub\ChessOOP\ChessOPPConsole\bin\Debug\ChessOPPConsole.pdb
+C:\Users\novopashin\Documents\GitHub\ChessOOP\ChessOPPConsole\obj\Debug\ChessOPPConsole.csprojResolveAssemblyReference.cache
+C:\Users\novopashin\Documents\GitHub\ChessOOP\ChessOPPConsole\obj\Debug\ChessOPPConsole.exe
+C:\Users\novopashin\Documents\GitHub\ChessOOP\ChessOPPConsole\obj\Debug\ChessOPPConsole.pdb

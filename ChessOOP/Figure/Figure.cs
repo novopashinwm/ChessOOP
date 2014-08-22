@@ -11,11 +11,11 @@ namespace ChessOOP
         //Цвет
         public abstract FigureColor Color();
         //Символ
-        public abstract string Symbol();
+        public abstract string Symbol { get;}
         //Клетка на которой находится фигура
         public abstract string Cell();
         //Шаг
-        public abstract bool Move();
+        public abstract void  Move(Move _move);
         //Проверка хода
         public abstract bool IsCheckMove(Move _move);
     }
