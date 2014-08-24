@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ChessOOP;
 
 namespace ChessOPPConsole
 {
@@ -8,6 +9,9 @@ namespace ChessOPPConsole
     {
         static void Main(string[] args)
         {
+            //Создаем объект доска и выводим сообщение для консоли
+            Console.WriteLine("{0} ", (Horizontal ) 0);
+
         }
     }
 }

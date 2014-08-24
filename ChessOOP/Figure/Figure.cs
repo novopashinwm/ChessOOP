@@ -5,18 +5,45 @@ using System.Text;
 namespace ChessOOP
 {
     //Класс фигуры
-    public abstract class Figure
+    public    class Figure
     {
-        protected string _symbol;
+        private FigureColor _color;         
+        private  string _symbol;
+        private   clsCell objCell;
+        
         //Цвет
-        public abstract FigureColor Color();
+         public FigureColor Color
+         {
+             get { return _color; }
+         }
+
+         public virtual void SetCell(int i, int j)
+         {
+             objCell = new clsCell(i, j);
+         }
+                    
         //Символ
-        public abstract string Symbol { get;}
+        public string Symbol { get { return _symbol; } }
         //Клетка на которой находится фигура
-        public abstract string Cell();
+        
         //Шаг
-        public abstract void  Move(Move _move);
+        public virtual void Move(Move _move)
+        { 
+            
+        }
         //Проверка хода
-        public abstract bool IsCheckMove(Move _move);
+        public virtual bool IsCheckMove(Move _move)
+        {
+            return true;
+        }
+
+        //Установка фигуры на определенную клетку
+        //public abstract void SetFigure();
+        public Figure(FigureColor fc, string symbol, int i, int j)
+        {
+            this._color = fc;
+            this._symbol = symbol;
+            this.SetCell(i, j);
+        }
     }
 }

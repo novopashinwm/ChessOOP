@@ -37,7 +37,8 @@
   <ItemGroup>
     <Compile Include="Board\Board.cs" />
     <Compile Include="Figure\Bishop.cs" />
-    <Compile Include="Figure\Castle.cs" />
+    <Compile Include="Figure\Rock.cs" />
+    <Compile Include="Figure\Cell.cs" />
     <Compile Include="Figure\Figure.cs" />
     <Compile Include="Figure\King.cs" />
     <Compile Include="Figure\Knight.cs" />

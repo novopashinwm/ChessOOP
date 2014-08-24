@@ -13,4 +13,6 @@ namespace ChessOOP
         public int colTo;
         public int rowTo;
     }
+    
+    public enum Horizontal { A,B,C,D,E,F,G,H };
 }

@@ -7,26 +7,17 @@ namespace ChessOOP
     //Класс ферзь
     class Queen: Figure
     {
-        public override string Cell()
-        {
-            throw new NotImplementedException();
-        }
-
+     
         public override void  Move(Move _move)
         {
             throw new NotImplementedException();
         }
 
-        public override FigureColor Color()
-        {
-            throw new NotImplementedException();
+        public Queen(FigureColor _color, string symbol, int i, int j)
+            : base(_color, symbol, i, j)
+        { 
         }
-
-        public override string Symbol
-        {
-            get { return "Ф" ; }
-        }
-
+        
         public override bool IsCheckMove(Move move)
         {
             throw new NotImplementedException();

@@ -3,3 +3,10 @@ C:\Users\novopashin\Documents\GitHub\ChessOOP\ChessOPPConsole\bin\Debug\ChessOPP
 C:\Users\novopashin\Documents\GitHub\ChessOOP\ChessOPPConsole\obj\Debug\ChessOPPConsole.csprojResolveAssemblyReference.cache
 C:\Users\novopashin\Documents\GitHub\ChessOOP\ChessOPPConsole\obj\Debug\ChessOPPConsole.exe
 C:\Users\novopashin\Documents\GitHub\ChessOOP\ChessOPPConsole\obj\Debug\ChessOPPConsole.pdb
+C:\Users\novopashinwm\Documents\GitHub\ChessOOP\ChessOPPConsole\obj\Debug\ChessOPPConsole.csprojResolveAssemblyReference.cache
+C:\Users\novopashinwm\Documents\GitHub\ChessOOP\ChessOPPConsole\obj\Debug\ChessOPPConsole.exe
+C:\Users\novopashinwm\Documents\GitHub\ChessOOP\ChessOPPConsole\bin\Debug\ChessOPPConsole.exe
+C:\Users\novopashinwm\Documents\GitHub\ChessOOP\ChessOPPConsole\bin\Debug\ChessOPPConsole.pdb
+C:\Users\novopashinwm\Documents\GitHub\ChessOOP\ChessOPPConsole\obj\Debug\ChessOPPConsole.pdb
+C:\Users\novopashinwm\Documents\GitHub\ChessOOP\ChessOPPConsole\bin\Debug\ChessOOP.dll
+C:\Users\novopashinwm\Documents\GitHub\ChessOOP\ChessOPPConsole\bin\Debug\ChessOOP.pdb
