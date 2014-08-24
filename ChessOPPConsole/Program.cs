@@ -10,7 +10,9 @@ namespace ChessOPPConsole
         static void Main(string[] args)
         {
             //Создаем объект доска и выводим сообщение для консоли
-            Console.WriteLine("{0} ", (Horizontal ) 0);
+            Board objBoard = new Board();
+            objBoard.PlaceFigures();
+            objBoard.PrintBoard();
 
         }
     }

@@ -16,8 +16,33 @@ namespace ChessOOP
 
         //Выводи находящиеся на доске фигуры
         public void PrintBoard()
-        { 
+        {
 
+            string strStroka = "   " + new string('-', 32);
+            Console.WriteLine(strStroka);
+            for (int i = _board.GetLength(0) - 1; i >= 0; i--)
+            {
+                Console.Write("{0} !", i + 1);
+                for (int j = 0; j < _board.GetLength(1); j++)
+                {
+                    string strFigure = "";
+                    if (_board[i, j] == null)
+                        strFigure = " ";
+                    else
+                        strFigure = ((Figure)_board[i, j]).Symbol;
+                    
+                    Console.Write(" {0} !", strFigure ) ;
+                }
+
+                Console.WriteLine();
+                Console.WriteLine(strStroka);
+            }
+
+            Console.Write("   ");
+            for (int i = 0; i < 8; i++)
+                Console.Write(" {0}  ", (Horizontal ) i);
+
+            Console.WriteLine();
         }
 
         //Начальная расстановка фигур
@@ -27,10 +52,10 @@ namespace ChessOOP
             for (int i = 0; i < 8; i++)
             {
                 //Большие буквы для белых , маленькие для черных
-                Pawn objPawn = new Pawn(FigureColor.White, "P", i,1);                
-                _board[i, 1] = (Figure)  objPawn;
-                objPawn = new Pawn(FigureColor.Black, "p", i,6);
-                _board[i, 6] = (Figure)objPawn;               
+                Pawn objPawn = new Pawn(FigureColor.White, "P", 1, i);                
+                _board[1, i] = (Figure)  objPawn;
+                objPawn = new Pawn(FigureColor.Black, "p", 6,i);
+                _board[6, i] = (Figure)objPawn;               
             }
 
             //Расставляем ладьи
