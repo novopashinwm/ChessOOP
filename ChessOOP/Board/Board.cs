@@ -80,6 +80,27 @@ namespace ChessOOP
 
         }
 
+        /// <summary>
+        /// Первичная помощь по программе
+        /// </summary>
+        public  void HelpFirst()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Упрощенная шахматная программа");
+            Console.WriteLine("1) 1- пешки белых, 2- пешки черных, 3- слон белых, 4 - слон черных;");
+            Console.WriteLine("2) пешки ходят на 1 и 2 шага вперед");
+            Console.WriteLine("3) пешки умеют бить");
+            Console.WriteLine("4) слоны ходят и бьют.");
+            Console.WriteLine(" ");
+            Console.WriteLine("Для того чтобы сделать ход, нужно ввести через пробел начальные");
+            Console.WriteLine("и конечные координаты фигуры");
+            Console.WriteLine("Например:a2  a3");
+            Console.WriteLine("Для выхода не вводя никаких координат просто нажмите ввод.");
+            Console.WriteLine("Нажмите любую клавишу.....");
+            Console.WriteLine();
+            Console.ReadLine();
+        }
+
         public void SetFigure(Figure objFigure, string symbol, int left, int rigth)
         {
             SetFigureOne(objFigure, symbol, left);

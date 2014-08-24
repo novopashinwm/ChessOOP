@@ -11,6 +11,7 @@ namespace ChessOPPConsole
         {
             //Создаем объект доска и выводим сообщение для консоли
             Board objBoard = new Board();
+            objBoard.HelpFirst();
             objBoard.PlaceFigures();
             objBoard.PrintBoard();
 
