@@ -15,8 +15,6 @@ namespace ChessOOP
            this.i = i;
            this.j = j;
         }
-        
-        
 
         //Перевод координат фигуры в шахматную нотацию
         public string Letter2Number
