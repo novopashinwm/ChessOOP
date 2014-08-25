@@ -20,7 +20,9 @@ namespace ChessOOP
         
         public override bool IsCheckMove(Move move)
         {
-            throw new NotImplementedException();
+            if (!base.IsCheckMove(move)) return false;
+
+            return true;
         }
     }
 }
