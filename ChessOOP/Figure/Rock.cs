@@ -15,7 +15,9 @@ namespace ChessOOP
       
         public override bool IsCheckMove(Move move)
         {
-            throw new NotImplementedException();
+            if (!base.IsCheckMove(move)) return false;
+
+            return true;
         }
         
         public Rock(FigureColor _color, string symbol, int i, int j)
