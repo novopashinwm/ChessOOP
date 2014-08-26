@@ -161,30 +161,21 @@ namespace ChessOOP
                     Console.WriteLine ("Начальные координаты "+ arrMove[0] + " не содержат фигуру");
                     return blnRet ;
                 }
-
-
+                
                 #region Проверяем, что сейчас ход той фигуры, цвет которой указан
-                if (WhichMove == FigureColor.White)                
+                if (WhichMove != objFrom.Color)
                 {
-                    if (Char.IsLower (objFrom.Symbol) )                    
-                    {
-                        Console.WriteLine("Сейчас ход белых!");
-                        return blnRet;
-                    }
-                }
-                else
-                {
-                    if  (Char.IsLetter ( objFrom.Symbol ) )
-                    {
-                        Console.WriteLine("Сейчас ход черных!");
-                        return blnRet;
-                    }
+                    if (WhichMove == FigureColor.White)
+                        Console.WriteLine  ("Сейчас ход белых!");
+                    else
+                        Console.WriteLine ("Сейчас ход черных!");
 
-                }
+                    return blnRet;
+                }                
                 #endregion
-                #region Проверяем, что клетка куда пойдет фигура не содержит фигуру того же цвета
 
-                if (Char.IsLower(objFrom.Symbol) == Char.IsLower (objTo.Symbol))
+                #region Проверяем, что клетка куда пойдет фигура не содержит фигуру того же цвета
+                if (objFrom.Color == objTo.Color)
                 {
                     Console.WriteLine("Фигура пошла на клетку с фигурой того же цвета!");
                     return blnRet;
