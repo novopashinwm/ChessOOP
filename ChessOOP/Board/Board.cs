@@ -71,12 +71,12 @@ namespace ChessOOP
             SetFigure(objBishop, "b", 2, 5);
 
             //Расставляем ферзей
-            Queen objQueen = new Queen(FigureColor.White, "q", 0, 3);
-            SetFigureOne(objQueen, "q", 3);
+            Queen objQueen = new Queen(FigureColor.White, "q", 0, 4);
+            SetFigureOne(objQueen, "q", 4);
 
             //Расставляем королей
-            King objKing = new King(FigureColor.White, "k", 0, 4);
-            SetFigureOne(objKing, "k", 4);
+            King objKing = new King(FigureColor.White, "k", 0, 3);
+            SetFigureOne(objKing, "k", 3);
 
         }
 
