@@ -130,7 +130,7 @@ namespace ChessOOP
                 //Если не правильная буква, то формируется Exception
                 objMove.colFrom = (int)Enum.Parse(typeof(Horizontal), arrMove[0].Substring(0, 1).ToUpper());
                 objMove.rowFrom = int.Parse(arrMove[0].Substring(1, 1)) - 1;
-                objMove.colTo = (int)Enum.Parse(typeof(Horizontal), arrMove[0].Substring(0, 1).ToUpper());
+                objMove.colTo = (int)Enum.Parse(typeof(Horizontal), arrMove[1].Substring(0, 1).ToUpper());
                 objMove.rowTo = int.Parse(arrMove[1].Substring(1, 1)) - 1;
 
                 #region Проверка на дурака, что координаты не выходят за пределы доски
