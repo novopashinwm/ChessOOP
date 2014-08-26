@@ -20,6 +20,32 @@ namespace ChessOPPConsole
             if (!objBoard.IsMoveValid(strMove))
             { 
             }
+            /*
+            HelpFirst();
+            Console.ReadLine();
+            SetFigures(white);
+            SetFigures(black);
+            string strMove = " ";
+                        
+            //Здесь находится сердце программы
+            while (strMove != "")
+            {
+                PrintBoard();
+                PrintMove();
+                strMove = Console.ReadLine();
+                if ( !IsMoveValid (strMove) && strMove !="")
+                {
+                    Console.WriteLine("Не правильный ход!");
+                    continue ;
+                }
+                ReplaceFigure();
+                //Передача хода противнику
+                isWhite = !isWhite;
+                
+            }
+            Console.WriteLine("Игра закончена!");
+            Console.ReadLine();             
+             */
         }
     }
 }
