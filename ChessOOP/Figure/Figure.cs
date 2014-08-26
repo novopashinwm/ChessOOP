@@ -34,6 +34,7 @@ namespace ChessOOP
         //Проверка хода
         public virtual bool IsCheckMove(Move _move)
         {
+
             return true;
         }
 

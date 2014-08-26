@@ -11,12 +11,7 @@ namespace ChessOOP
         private Move objMove;
         private Figure objFrom;
         private Figure objTo;
-
-        public Figure  [,] MyBoard 
-        {
-            get {return _board ; }
-        }
-
+       
         //Выводи находящиеся на доске фигуры
         public void PrintBoard()
         {
@@ -84,11 +79,7 @@ namespace ChessOOP
 
         }
 
-        public FigureColor WhichMove
-        {          
-            get;
-            set;
-        }
+        public FigureColor WhichMove  { get; set; }
 
         /// <summary>
         /// Первичная помощь по программе
@@ -129,13 +120,13 @@ namespace ChessOOP
         }
 
         //Парсинг хода
-        bool IsMoveValid(string strMove)
+        public bool IsMoveValid(string strMove)
         {
             bool blnRet = false;
 
             try
-            {
-                string [] arrMove = strMove.Split(' ');
+            {   
+                string[] arrMove = strMove.Split(' ');
                 //Если не правильная буква, то формируется Exception
                 objMove.colFrom = (int)Enum.Parse(typeof(Horizontal), arrMove[0].Substring(0, 1).ToUpper());
                 objMove.rowFrom = int.Parse(arrMove[0].Substring(1, 1)) - 1;
@@ -143,9 +134,9 @@ namespace ChessOOP
                 objMove.rowTo = int.Parse(arrMove[1].Substring(1, 1)) - 1;
 
                 #region Проверка на дурака, что координаты не выходят за пределы доски
-                if ((objMove.rowFrom < 0) 
-                    || (objMove.rowFrom > 7) 
-                    || (objMove.rowTo < 0) 
+                if ((objMove.rowFrom < 0)
+                    || (objMove.rowFrom > 7)
+                    || (objMove.rowTo < 0)
                     || (objMove.rowTo > 7))
                 {
                     Console.WriteLine("Заданы не верные цифровые обозначения строк доски.");
@@ -153,50 +144,41 @@ namespace ChessOOP
                 }
                 #endregion
 
-                objFrom  = _board[objMove.rowFrom, objMove.colFrom];
+                objFrom = _board[objMove.rowFrom, objMove.colFrom];
                 objTo = _board[objMove.rowTo, objMove.colTo];
-                
-                if (objFrom == null )
+
+                if (objFrom == null)
                 {
-                    Console.WriteLine ("Начальные координаты "+ arrMove[0] + " не содержат фигуру");
-                    return blnRet ;
+                    Console.WriteLine("Начальные координаты " + arrMove[0] + " не содержат фигуру");
+                    return blnRet;
                 }
-                
+
                 #region Проверяем, что сейчас ход той фигуры, цвет которой указан
                 if (WhichMove != objFrom.Color)
                 {
                     if (WhichMove == FigureColor.White)
-                        Console.WriteLine  ("Сейчас ход белых!");
+                        Console.WriteLine("Сейчас ход белых!");
                     else
-                        Console.WriteLine ("Сейчас ход черных!");
+                        Console.WriteLine("Сейчас ход черных!");
 
                     return blnRet;
-                }                
+                }
                 #endregion
 
                 #region Проверяем, что клетка куда пойдет фигура не содержит фигуру того же цвета
-                if (objFrom.Color == objTo.Color)
+                //Сделано коряво - в этом месте хочу переписать код.
+                if (objTo != null)
                 {
-                    Console.WriteLine("Фигура пошла на клетку с фигурой того же цвета!");
-                    return blnRet;
+                    if (objFrom.Color == objTo.Color)
+                    {
+                        Console.WriteLine("Фигура пошла на клетку с фигурой того же цвета!");
+                        return blnRet;
+                    }
                 }
-                #endregion
+                #endregion               
 
-                switch (objFrom.GetType().ToString () )
-                {
-                    //Пешки                    
-                    case "Pawn":
-                        //if (!PawnCheck()) return blnRet;
-                        blnRet = true;
-                        break;
-                    //Слоны
-                    case "Bishop":
-                        //if (!BishopCheck()) return blnRet;
-                        blnRet = true;
-                        break;
-                    case "":
-                        break;
-                }
+                //Вызываем проверку хода фигурой - необходима реализация в каждой фигуре отдельно
+                if (!objFrom.IsCheckMove(objMove)) return blnRet  ;                
                 
             }
             catch
@@ -208,7 +190,7 @@ namespace ChessOOP
         //Фактически вводи ход в формате e2 e4
         public string   SelectFigureConsole()
         {
-            Console.WriteLine("");
+            Console.WriteLine("Введите ход");
             return Console.ReadLine();
             
         }
