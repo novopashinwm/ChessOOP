@@ -13,7 +13,7 @@ namespace ChessOOP
             throw new NotImplementedException();
         }
 
-        public Queen(FigureColor _color, string symbol, int i, int j)
+        public Queen(FigureColor _color, char  symbol, int i, int j)
             : base(_color, symbol, i, j)
         { 
         }

@@ -20,7 +20,7 @@ namespace ChessOOP
             return true;
         }
         
-        public Rock(FigureColor _color, string symbol, int i, int j)
+        public Rock(FigureColor _color, char  symbol, int i, int j)
             : base(_color, symbol, i, j)
         { 
         }

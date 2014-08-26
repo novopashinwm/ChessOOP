@@ -10,3 +10,5 @@ C:\Users\novopashinwm\Documents\GitHub\ChessOOP\ChessOPPConsole\bin\Debug\ChessO
 C:\Users\novopashinwm\Documents\GitHub\ChessOOP\ChessOPPConsole\obj\Debug\ChessOPPConsole.pdb
 C:\Users\novopashinwm\Documents\GitHub\ChessOOP\ChessOPPConsole\bin\Debug\ChessOOP.dll
 C:\Users\novopashinwm\Documents\GitHub\ChessOOP\ChessOPPConsole\bin\Debug\ChessOOP.pdb
+C:\Users\novopashin\Documents\GitHub\ChessOOP\ChessOPPConsole\bin\Debug\ChessOOP.dll
+C:\Users\novopashin\Documents\GitHub\ChessOOP\ChessOPPConsole\bin\Debug\ChessOOP.pdb

@@ -26,7 +26,7 @@ namespace ChessOOP
             return true;
         }
 
-        public Pawn(FigureColor _color, string symbol, int i , int j) 
+        public Pawn(FigureColor _color, char  symbol, int i , int j) 
             :base (_color , symbol , i,j )
         {
            

@@ -8,7 +8,7 @@ namespace ChessOOP
     public    class Figure
     {
         private FigureColor _color;         
-        private  string _symbol;
+        private  char _symbol;
         private   clsCell objCell;
         
         //Цвет
@@ -23,7 +23,7 @@ namespace ChessOOP
          }
                     
         //Символ
-        public string Symbol { get { return _symbol; } }
+        public char  Symbol { get { return _symbol; } }
         //Клетка на которой находится фигура
         
         //Шаг
@@ -39,7 +39,7 @@ namespace ChessOOP
 
         //Установка фигуры на определенную клетку
         //public abstract void SetFigure();
-        public Figure(FigureColor fc, string symbol, int i, int j)
+        public Figure(FigureColor fc, char symbol, int i, int j)
         {
             this._color = fc;
             this._symbol = symbol;

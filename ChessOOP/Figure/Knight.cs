@@ -20,7 +20,7 @@ namespace ChessOOP
             return true;
         }
 
-        public Knight(FigureColor _color, string symbol, int i, int j)
+        public Knight(FigureColor _color, char  symbol, int i, int j)
             : base(_color, symbol, i, j)
         { 
         }

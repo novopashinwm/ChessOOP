@@ -3,3 +3,8 @@ C:\Users\novopashinwm\Documents\GitHub\ChessOOP\ChessOOP\bin\Debug\ChessOOP.dll
 C:\Users\novopashinwm\Documents\GitHub\ChessOOP\ChessOOP\bin\Debug\ChessOOP.pdb
 C:\Users\novopashinwm\Documents\GitHub\ChessOOP\ChessOOP\obj\Debug\ChessOOP.dll
 C:\Users\novopashinwm\Documents\GitHub\ChessOOP\ChessOOP\obj\Debug\ChessOOP.pdb
+C:\Users\novopashin\Documents\GitHub\ChessOOP\ChessOOP\obj\Debug\ChessOOP.csprojResolveAssemblyReference.cache
+C:\Users\novopashin\Documents\GitHub\ChessOOP\ChessOOP\obj\Debug\ChessOOP.dll
+C:\Users\novopashin\Documents\GitHub\ChessOOP\ChessOOP\bin\Debug\ChessOOP.dll
+C:\Users\novopashin\Documents\GitHub\ChessOOP\ChessOOP\bin\Debug\ChessOOP.pdb
+C:\Users\novopashin\Documents\GitHub\ChessOOP\ChessOOP\obj\Debug\ChessOOP.pdb
