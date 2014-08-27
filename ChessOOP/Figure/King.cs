@@ -17,6 +17,12 @@ namespace ChessOOP
         {
             if (!base.IsCheckMove(move,_board)) return false;
 
+            if ((Math.Abs(move.colTo - move.colFrom) > 1) ||
+                (Math.Abs(move.rowTo - move.rowFrom) > 1))
+            {
+                Console.WriteLine("Король не может ходить больше чем на 1 клетку");
+                return false;
+            }
             return true;
         }
 

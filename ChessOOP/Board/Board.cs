@@ -52,12 +52,10 @@ namespace ChessOOP
            //Ставим пешки
             for (int i = 0; i < 8; i++)
             {
-                //Большие буквы для белых 
-                Pawn objPawn = new Pawn(FigureColor.White, 'P');                
-                _board[1, i] = (Figure)  objPawn;
-                //маленькие для черных
-                objPawn = new Pawn(FigureColor.Black, 'p');
-                _board[6, i] = (Figure)objPawn;               
+                //Большие буквы для белых                 
+                _board[1, i] = new Pawn(FigureColor.White, 'P');
+                //маленькие для черных                
+                _board[6, i] = new Pawn(FigureColor.Black, 'p');
             }
 
             //Расставляем ладьи            
@@ -117,27 +115,26 @@ namespace ChessOOP
             { 
                 case "Bishop":
                     _board[0, intCol] = new Bishop (FigureColor.White, chrUp);
-                    _board[7, intCol] = new Bishop (FigureColor.White, chrLower);
+                    _board[7, intCol] = new Bishop (FigureColor.Black, chrLower);
                     break;
                 case "King":
                     _board[0, intCol] = new King(FigureColor.White, chrUp);
-                    _board[7, intCol] = new King (FigureColor.White, chrLower);
+                    _board[7, intCol] = new King (FigureColor.Black, chrLower);
                     break;
                 case "Knight":
                     _board[0, intCol] = new Knight(FigureColor.White, chrUp);
-                    _board[7, intCol] = new Knight (FigureColor.White, chrLower);
+                    _board[7, intCol] = new Knight (FigureColor.Black, chrLower);
                     break;
                 case "Queen":
                     _board[0, intCol] = new Queen(FigureColor.White, chrUp);
-                    _board[7, intCol] = new Queen (FigureColor.White, chrLower);
+                    _board[7, intCol] = new Queen (FigureColor.Black, chrLower);
                     break;
                 case "Rock":
                     _board[0, intCol] = new Rock (FigureColor.White, chrUp);
-                    _board[7, intCol] = new Rock (FigureColor.White, chrLower);
+                    _board[7, intCol] = new Rock (FigureColor.Black, chrLower);
                     break;
             }
-            
-            
+                        
         }
 
 
@@ -160,8 +157,7 @@ namespace ChessOOP
             //Пока 2 цвета фигур - черные и белые - соответственно значения в enum-ах 0,1
             if (i > 1) i = 0;
             
-            WhichMove = (FigureColor)i;
-            
+            WhichMove = (FigureColor)i;            
         }
 
         //Парсинг хода

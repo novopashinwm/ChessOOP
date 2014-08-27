@@ -26,16 +26,16 @@ namespace ChessOOP
                 return blnRet;
             }
             
-            if ((move.colFrom != move.colTo) )
+            if ((move.colFrom != move.colTo) && (objBrd.To == null) )
             {
                 Console.WriteLine("Ошибочный ход на клетку " + move.To);
                 return blnRet;
             }
 
             //Проверяем ход сначала на 2 клетки
-            if (move.colTo == move.colFrom &&
+            if ((move.colTo == move.colFrom)  &&
                 (
-                //Белые не могу
+                //Белые не могут дальше 1 клетки
                 ((Color == FigureColor.White ) && ((move.rowTo - move.rowFrom) > 1) && move.rowFrom != 1)
                 ||
                 //Черные не могут двигаться дальше 1 клетки

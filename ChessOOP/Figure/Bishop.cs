@@ -13,36 +13,40 @@ namespace ChessOOP
             throw new NotImplementedException();
         }
         
-        public override bool IsCheckMove(Move Move, Board  objBoard)
+        public override bool IsCheckMove(Move move, Board  objBoard)
         {
             Figure[,] board = objBoard.BRD;
 
-            if (!base.IsCheckMove(Move, objBoard )) return false;
+            if (!base.IsCheckMove(move, objBoard )) return false;
             bool blnRet = false;
-            if (Math.Abs(Move.colTo - Move.colFrom) != Math.Abs(Move.rowTo - Move.rowFrom))
+            if (Math.Abs(move.colTo - move.colFrom) != Math.Abs(move.rowTo - move.rowFrom))
             {
                 Console.WriteLine("Так слон не ходит!");
                 return blnRet;
             }
 
-            int begin, end;
-            if (Move.rowFrom < Move.rowTo)
+            int rowbegin, rowend;
+            if (move.rowFrom < move.rowTo)
             {
-                begin = Move.rowFrom;
-                end = Move.rowTo;
+                rowbegin = move.rowFrom;
+                rowend = move.rowTo;
             }
             else
             {
-                begin = Move.rowTo;
-                end = Move.rowFrom;
+                rowbegin = move.rowTo;
+                rowend = move.rowFrom;
             }
+
+            int colBegin = (move.colFrom > move.colTo) ? move.colTo : move.colFrom;
+
+            
             //Слон ходит по диагонали, соответственно проверяем диагональ
-            for (int i = begin; i < end; i++)
+            for (int row = 0; row <= (rowend-rowbegin ); row++)
             {
-                if (board[i, i]!= null)
+                if ( (board[rowbegin + row , colBegin + row ]!= null) && ((move.rowFrom != row ) && move.colFrom!= (colBegin +row)))
                 {
-                    Console.WriteLine("Между началом хода слона " + Move.From  + " и окончанием хода " 
-                        + Move.To + " содержится фигуры!");
+                    Console.WriteLine("Между началом хода слона " + move.From  + " и окончанием хода " 
+                        + move.To + " содержится фигуры!");
                     return blnRet;
                 }
             }
