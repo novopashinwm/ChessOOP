@@ -9,7 +9,7 @@ namespace ChessOOP
     {
         private FigureColor _color;         
         private  char _symbol;
-             
+        public bool SilentMode { get; set; }     
 
         //Цвет
          public FigureColor Color
@@ -64,7 +64,8 @@ namespace ChessOOP
         public Figure(FigureColor fc, char symbol )
         {
             this._color = fc;
-            this._symbol = symbol;            
+            this._symbol = symbol;
+            this.SilentMode = false;
         }
     }
 }
