@@ -9,9 +9,12 @@ namespace ChessOOP
     {
         private Figure  [,] _board  = new Figure [8,8];
         private Move objMove;
-        private Figure objFrom;
-        private Figure objTo;
-       
+
+        public Figure From { get; set; }
+        public Figure To { get; set; }
+
+        public Figure[,] BRD { get { return _board; } }
+        
         //Выводи находящиеся на доске фигуры
         public void PrintBoard()
         {
@@ -50,35 +53,31 @@ namespace ChessOOP
             for (int i = 0; i < 8; i++)
             {
                 //Большие буквы для белых 
-                Pawn objPawn = new Pawn(FigureColor.White, 'P', 1, i);                
+                Pawn objPawn = new Pawn(FigureColor.White, 'P');                
                 _board[1, i] = (Figure)  objPawn;
                 //маленькие для черных
-                objPawn = new Pawn(FigureColor.Black, 'p', 6,i);
+                objPawn = new Pawn(FigureColor.Black, 'p');
                 _board[6, i] = (Figure)objPawn;               
             }
 
-            //Расставляем ладьи
-            Rock objRock = new Rock (FigureColor.White , 'R', 0,0);
-            SetFigure(objRock, 'r', 0, 7);
+            //Расставляем ладьи            
+            SetFigure("Rock", 'r', 0, 7);
 
-            //Расставляем коней            
-            Knight  objKnight = new Knight (FigureColor.White,'N',0,1);
-            SetFigure(objKnight, 'n', 1, 6);
+            //Расставляем коней                        
+            SetFigure("Knight", 'n', 1, 6);
 
-           //Раставляем  слонов
-            Bishop objBishop = new Bishop(FigureColor.White, 'b', 0, 2);
-            SetFigure(objBishop, 'b', 2, 5);
+           //Раставляем  слонов            
+            SetFigure("Bishop", 'b', 2, 5);
 
-            //Расставляем ферзей
-            Queen objQueen = new Queen(FigureColor.White, 'q', 0, 4);
-            SetFigureOne(objQueen, 'q', 4);
+            //Расставляем ферзей            
+            SetFigureOne("Queen", 'q', 4);
 
-            //Расставляем королей
-            King objKing = new King(FigureColor.White, 'k', 0, 3);
-            SetFigureOne(objKing, 'k', 3);
+            //Расставляем королей            
+            SetFigureOne("King", 'k', 3);
 
         }
 
+        //Фигуры какого цвета в данный момент ходят
         public FigureColor WhichMove  { get; set; }
 
         /// <summary>
@@ -97,25 +96,71 @@ namespace ChessOOP
             Console.WriteLine("Для выхода не вводя никаких координат просто нажмите ввод.");
             Console.WriteLine("Нажмите любую клавишу.....");
             Console.WriteLine();
-            Console.ReadLine();
+            Console.ReadKey();
             Console.Clear();
         }
 
         //Начальная установка парных фигур
-        public void SetFigure(Figure objFigure, char symbol, int left, int rigth)
+        public void SetFigure(string strFigureType , char symbol, int left, int rigth)
         {
-            SetFigureOne(objFigure, symbol, left);
-            SetFigureOne(objFigure, symbol, rigth);
+            SetFigureOne(strFigureType, symbol, left);
+            SetFigureOne(strFigureType, symbol, rigth);
         }
 
         //Начальная установка одной фигуры для белых и черных
-        public void SetFigureOne(Figure objFigure, char symbol, int intCol)
+        public void SetFigureOne(string strFigureType, char symbol, int intCol)
         {
-            objFigure = new Figure(FigureColor.White, char.Parse(symbol.ToString ().ToUpper ()), 0, intCol);
-            _board[0, intCol] = objFigure;
+            char chrUp = char.Parse(symbol.ToString().ToUpper());
+            char chrLower = char.Parse(symbol.ToString().ToLower());
+            
+            switch (strFigureType)
+            { 
+                case "Bishop":
+                    _board[0, intCol] = new Bishop (FigureColor.White, chrUp);
+                    _board[7, intCol] = new Bishop (FigureColor.White, chrLower);
+                    break;
+                case "King":
+                    _board[0, intCol] = new King(FigureColor.White, chrUp);
+                    _board[7, intCol] = new King (FigureColor.White, chrLower);
+                    break;
+                case "Knight":
+                    _board[0, intCol] = new Knight(FigureColor.White, chrUp);
+                    _board[7, intCol] = new Knight (FigureColor.White, chrLower);
+                    break;
+                case "Queen":
+                    _board[0, intCol] = new Queen(FigureColor.White, chrUp);
+                    _board[7, intCol] = new Queen (FigureColor.White, chrLower);
+                    break;
+                case "Rock":
+                    _board[0, intCol] = new Rock (FigureColor.White, chrUp);
+                    _board[7, intCol] = new Rock (FigureColor.White, chrLower);
+                    break;
+            }
+            
+            
+        }
 
-            objFigure = new Figure(FigureColor.Black, char.Parse (symbol.ToString().ToLower()), 7, intCol);
-            _board[7, intCol] = objFigure;
+
+        public  void PrintMove()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Ход {0}.", (WhichMove == FigureColor.White) ? "белых" : "черных");            
+            Console.WriteLine();
+        }
+        public void ReplaceFigure()
+        {
+            _board[objMove.rowFrom, objMove.colFrom] = null ;
+            _board[objMove.rowTo, objMove.colTo] = From;
+        }
+
+        public void NextMove()
+        {
+            int i = (int)WhichMove;
+            i++;
+            //Пока 2 цвета фигур - черные и белые - соответственно значения в enum-ах 0,1
+            if (i > 1) i = 0;
+            
+            WhichMove = (FigureColor)i;
             
         }
 
@@ -125,64 +170,25 @@ namespace ChessOOP
             bool blnRet = false;
 
             try
-            {   
-                string[] arrMove = strMove.Split(' ');
-                //Если не правильная буква, то формируется Exception
-                objMove.colFrom = (int)Enum.Parse(typeof(Horizontal), arrMove[0].Substring(0, 1).ToUpper());
-                objMove.rowFrom = int.Parse(arrMove[0].Substring(1, 1)) - 1;
-                objMove.colTo = (int)Enum.Parse(typeof(Horizontal), arrMove[1].Substring(0, 1).ToUpper());
-                objMove.rowTo = int.Parse(arrMove[1].Substring(1, 1)) - 1;
+            {
+                objMove = new Move(strMove);
+                if (!objMove.IsCheckMove()) return blnRet;
+                From = _board[objMove.rowFrom, objMove.colFrom];
+                To = _board[objMove.rowTo, objMove.colTo];
 
-                #region Проверка на дурака, что координаты не выходят за пределы доски
-                if ((objMove.rowFrom < 0)
-                    || (objMove.rowFrom > 7)
-                    || (objMove.rowTo < 0)
-                    || (objMove.rowTo > 7))
+                if (From == null)
                 {
-                    Console.WriteLine("Заданы не верные цифровые обозначения строк доски.");
+                    Console.WriteLine("Начальные координаты " + objMove.From + " не содержат фигуру");
                     return blnRet;
                 }
-                #endregion
-
-                objFrom = _board[objMove.rowFrom, objMove.colFrom];
-                objTo = _board[objMove.rowTo, objMove.colTo];
-
-                if (objFrom == null)
-                {
-                    Console.WriteLine("Начальные координаты " + arrMove[0] + " не содержат фигуру");
-                    return blnRet;
-                }
-
-                #region Проверяем, что сейчас ход той фигуры, цвет которой указан
-                if (WhichMove != objFrom.Color)
-                {
-                    if (WhichMove == FigureColor.White)
-                        Console.WriteLine("Сейчас ход белых!");
-                    else
-                        Console.WriteLine("Сейчас ход черных!");
-
-                    return blnRet;
-                }
-                #endregion
-
-                #region Проверяем, что клетка куда пойдет фигура не содержит фигуру того же цвета
-                //Сделано коряво - в этом месте хочу переписать код.
-                if (objTo != null)
-                {
-                    if (objFrom.Color == objTo.Color)
-                    {
-                        Console.WriteLine("Фигура пошла на клетку с фигурой того же цвета!");
-                        return blnRet;
-                    }
-                }
-                #endregion               
-
+               
                 //Вызываем проверку хода фигурой - необходима реализация в каждой фигуре отдельно
-                if (!objFrom.IsCheckMove(objMove)) return blnRet  ;                
+                if (!From.IsCheckMove(objMove, this)) return blnRet  ;                
                 
             }
             catch
             { }
+            blnRet = true;
             return blnRet;
         }
 

@@ -11,17 +11,18 @@ namespace ChessOOP
         public override void  Move(Move _move)
         {
             throw new NotImplementedException();
-        }        
+        }
 
-        public override bool IsCheckMove(Move move)
+        public override bool IsCheckMove(Move move, Board _board)
         {
-            if (!base.IsCheckMove(move)) return false;
+
+            if (!base.IsCheckMove(move, _board)) return false;
 
             return true;
         }
 
-        public Knight(FigureColor _color, char  symbol, int i, int j)
-            : base(_color, symbol, i, j)
+        public Knight(FigureColor _color, char  symbol)
+            : base(_color, symbol)
         { 
         }
     }

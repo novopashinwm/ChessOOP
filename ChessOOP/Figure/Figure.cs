@@ -9,18 +9,14 @@ namespace ChessOOP
     {
         private FigureColor _color;         
         private  char _symbol;
-        private   clsCell objCell;
-        
+             
+
         //Цвет
          public FigureColor Color
          {
              get { return _color; }
          }
 
-         public virtual void SetCell(int i, int j)
-         {
-             objCell = new clsCell(i, j);
-         }
                     
         //Символ
         public char  Symbol { get { return _symbol; } }
@@ -31,20 +27,44 @@ namespace ChessOOP
         { 
             
         }
-        //Проверка хода
-        public virtual bool IsCheckMove(Move _move)
-        {
+        
 
+        public virtual bool IsCheckMove(Move _move, Board objBoard)
+        {
+          
+            bool blnRet = false;
+
+            #region Проверяем, что сейчас ход той фигуры, цвет которой указан
+            if (objBoard.WhichMove != objBoard.From.Color)
+            {
+                if (objBoard.WhichMove == FigureColor.White)
+                    Console.WriteLine("Сейчас ход белых!");
+                else
+                    Console.WriteLine("Сейчас ход черных!");
+
+                return blnRet;
+            }
+            #endregion
+
+            #region Проверяем, что клетка куда пойдет фигура не содержит фигуру того же цвета            
+            if (objBoard.To != null)
+            {
+                if (objBoard.From.Color == objBoard.To.Color)
+                {
+                    Console.WriteLine("Фигура пошла на клетку с фигурой того же цвета!");
+                    return blnRet;
+                }
+            }
+            #endregion         
             return true;
         }
 
         //Установка фигуры на определенную клетку
         //public abstract void SetFigure();
-        public Figure(FigureColor fc, char symbol, int i, int j)
+        public Figure(FigureColor fc, char symbol )
         {
             this._color = fc;
-            this._symbol = symbol;
-            this.SetCell(i, j);
+            this._symbol = symbol;            
         }
     }
 }

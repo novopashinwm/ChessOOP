@@ -8,20 +8,15 @@ namespace ChessOOP
     class Pawn: Figure 
     {
         
-
         public override void  Move(Move _move)
         {
             throw new NotImplementedException();
         }
-
-        public override void SetCell(int i, int j)
+                
+        public override bool IsCheckMove(Move move, Board objBrd )
         {
-            base.SetCell(i, j);
-        }
-        
-        public override bool IsCheckMove(Move move)
-        {
-            if (!base.IsCheckMove(move)) return false;
+            Figure[,] _board = objBrd.BRD;
+            if (!base.IsCheckMove(move, objBrd)) return false;
             //Проверяем, что на конечной клетке хода нет нашей фигуры                        
             //Если ходим с клетки 2 - допустим a2, то можно передвинуться на одну клетку или сразу на 2 клетки
             bool blnRet = false;
@@ -30,12 +25,10 @@ namespace ChessOOP
                 Console.WriteLine("Пешка не может ходить через 2 столбца");
                 return blnRet;
             }
-
-            clsCell objCell = new clsCell(move.colTo , move.rowTo );
-
+            
             if ((move.colFrom != move.colTo) )
             {
-                Console.WriteLine("Ошибочный ход на клетку " + objCell.Letter2Number  );
+                Console.WriteLine("Ошибочный ход на клетку " + move.To);
                 return blnRet;
             }
 
@@ -58,8 +51,8 @@ namespace ChessOOP
             return true;
         }
 
-        public Pawn(FigureColor _color, char  symbol, int i , int j) 
-            :base (_color , symbol , i,j )
+        public Pawn(FigureColor _color, char  symbol) 
+            :base (_color , symbol)
         {
            
         }

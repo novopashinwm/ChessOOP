@@ -14,17 +14,29 @@ namespace ChessOPPConsole
             Board objBoard = new Board();
             objBoard.HelpFirst();
             objBoard.PlaceFigures();
-            objBoard.PrintBoard();
+            
             objBoard.WhichMove = FigureColor.White;
-            string strMove = objBoard.SelectFigureConsole();
-            if (!objBoard.IsMoveValid(strMove))
-            { 
+
+            string strMove = " ";
+            while (strMove != "")
+            {
+                objBoard.PrintBoard();
+                objBoard.PrintMove();
+                strMove = objBoard.SelectFigureConsole();
+                if (!objBoard.IsMoveValid(strMove) && strMove !="")
+                {
+                    Console.WriteLine("Не правильный ход!");
+                    continue;
+                }
+                objBoard.ReplaceFigure ();
+                objBoard.NextMove(); 
             }
+            Console.WriteLine("Игра закончена!");
+            Console.ReadLine();
             /*
             HelpFirst();
             Console.ReadLine();
-            SetFigures(white);
-            SetFigures(black);
+            
             string strMove = " ";
                         
             //Здесь находится сердце программы
