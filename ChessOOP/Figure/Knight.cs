@@ -18,7 +18,14 @@ namespace ChessOOP
 
             if (!base.IsCheckMove(move, _board)) return false;
 
-            return true;
+            //Делаем проверку, что конь сходил буквой Г
+            if (((Math.Abs(move.rowTo - move.rowFrom) == 1) && (Math.Abs(move.colTo - move.colFrom) == 2)) ||
+                ((Math.Abs(move.colTo - move.colFrom) == 1) && (Math.Abs(move.rowTo - move.rowFrom) == 2))
+                )
+                return true;
+
+            Console.WriteLine("Так конь не ходит!");
+            return false ;
         }
 
         public Knight(FigureColor _color, char  symbol)

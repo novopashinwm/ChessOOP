@@ -6,8 +6,7 @@ namespace ChessOOP
 {
     //Класс ферзь
     class Queen: Figure
-    {
-        
+    {        
      
         public Queen(FigureColor _color, char  symbol)
             : base(_color, symbol)
