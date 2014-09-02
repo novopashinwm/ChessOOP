@@ -46,6 +46,7 @@ namespace ChessOOP
                 ||
                 //С начальной позиции черные не могут двигаться далдьше 2 шагов вперед
                 ((Color == FigureColor.Black) && ((move.rowFrom - move.rowTo) > 2) && move.rowFrom == 6)
+                || (objBrd.To != null )
                 ))
                 return blnRet;
             return true;
