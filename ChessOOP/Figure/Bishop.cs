@@ -27,19 +27,10 @@ namespace ChessOOP
                 return blnRet;
             }
 
-            int rowbegin, rowend;
-            if (move.rowFrom < move.rowTo)
-            {
-                rowbegin = move.rowFrom;
-                rowend = move.rowTo;
-            }
-            else
-            {
-                rowbegin = move.rowTo;
-                rowend = move.rowFrom;
-            }
+            int rowbegin = Math.Min(move.rowFrom, move.rowTo);
+            int rowend = Math.Max(move.rowFrom, move.rowTo);
 
-            int colBegin = (move.colFrom > move.colTo) ? move.colTo : move.colFrom;
+            int colBegin = Math.Min(move.colFrom, move.colTo);
                         
             //Слон ходит по диагонали, соответственно проверяем диагональ
             for (int row = 0; row <= (rowend-rowbegin ); row++)

@@ -20,24 +20,8 @@ namespace ChessOOP
             rowTo = int.Parse(arrMove[1].Substring(1, 1)) - 1;
         }
                
-        //public Move() :this ("a1 a2") {   }
-    
-        public bool IsCheckMove()
-        {
-            bool blnRet = false;
-            #region Проверка на дурака, что координаты не выходят за пределы доски
-            if ((rowFrom < 0)
-                || (rowFrom > 7)
-                || (rowTo < 0)
-                || (rowTo > 7))
-            {
-                Console.WriteLine("Заданы не верные цифровые обозначения строк доски.");
-                return blnRet;
-            }
-            #endregion
-            return true;
-        }
-
+        //public Move() :this ("a1 a2") {   }    
+  
         public string  From { get; set; }
         public string  To { get; set; }
         public int colFrom { get; set; }

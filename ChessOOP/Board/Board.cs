@@ -167,8 +167,7 @@ namespace ChessOOP
 
             try
             {
-                objMove = new Move(strMove);
-                if (!objMove.IsCheckMove()) return blnRet;
+                objMove = new Move(strMove);                
                 From = _board[objMove.rowFrom, objMove.colFrom];
                 To = _board[objMove.rowTo, objMove.colTo];
 

@@ -27,17 +27,11 @@ namespace ChessOOP
 
             Figure[,] board = _board.BRD;
             bool blnRet = false;
-            int rowBegin, rowEnd, colBegin, colEnd;
-            if (move.rowTo > move.rowFrom)
-                { rowBegin = move.rowFrom;  rowEnd = move.rowTo; }
-            else
-                { rowBegin = move.rowTo; rowEnd = move.rowFrom;  }
-
-            if (move.colTo > move.colFrom)
-                { colBegin = move.colFrom;  colEnd = move.colTo; }
-            else
-                { colBegin = move.colTo; colEnd = move.colFrom; }
-
+            int rowBegin = Math.Min(move.rowFrom, move.rowTo);
+            int rowEnd = Math.Max (move.rowFrom, move.rowTo);
+            int colBegin = Math.Min (move.colFrom, move.colTo);
+            int colEnd = Math.Max (move.colFrom, move.colTo) ;
+            
             #region Проверка хода по горизонтали
             if (move.rowTo == move.rowFrom)
             {

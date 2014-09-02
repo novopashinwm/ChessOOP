@@ -34,6 +34,17 @@ namespace ChessOOP
           
             bool blnRet = false;
 
+            #region Проверка на дурака, что координаты не выходят за пределы доски
+            if ((_move.rowFrom < 0)
+                || (_move.rowFrom > 7)
+                || (_move.rowTo < 0)
+                || (_move.rowTo > 7))
+            {
+                Console.WriteLine("Заданы не верные цифровые обозначения строк доски.");
+                return blnRet;
+            }
+            #endregion
+
             #region Проверяем, что сейчас ход той фигуры, цвет которой указан
             if (objBoard.WhichMove != objBoard.From.Color)
             {
