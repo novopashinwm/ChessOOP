@@ -5,7 +5,7 @@ using System.Text;
 namespace ChessOOP
 {
     //Класс фигуры
-    public    class Figure
+    public abstract  class Figure
     {
         private FigureColor _color;         
         private  char _symbol;
